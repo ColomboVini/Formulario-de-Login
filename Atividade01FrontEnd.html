@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial	-scale=1.0">
+		<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=N_MKE6IGuP4zFbZmex_edMsBfYUqn9mwANtT52hL50dUrr5JYn7tOq-OIKwRyZd0dYyQsOcI_ZfwqbYgoIyqyGiGth6J_egCqbkfhtHaPNxTqbDVQckRivG_v5UBbn33E-_QbWTqt4THXENah_SPfoMpLdJb4sY4yYeFANpnY9vHVZNVWjRuxka5qkW5AAuYCTz_qr2L9KOPfLNDWxSH0L4v0n3s4VJ2clNVFhvKCFK6JXwfEeNDmfuRtdTIOFuq_njmjgzNbekrp4BvBAEUSt3-oY7TsjikF0Y75omwtjBPjFFbz9RcBsLCBj2bm23ngM5M2c-vOdL7zzA8MlazEYdJ1c2M4ECBuC9yaC8KSh5V1-J-IofJe95RK8fIGpYVa1eyFr6vVXdUBA0g-N00miGOTz78_EA5pNkxQr4DQ-EvZ10lDRzBRvQyULSV_Im12nhFWuaVIkje-3ZnyykhQCHzVMmOaX8z5LdBJnexAp-I0j7KOXBW4o0OgYxofcMXpV5fhy93lStroUoxcCP6RHnUUtXY6efC8VolIthCGizRZGGVQoGfRC4GKZ4YFODTvdXZzdTHTTi-VbLpQCocjZmY4wa6flBWJE2ZUN2MZ7yazSAsdAIrfNvccOn3qKG_OnIj0XL6m7sdsE8Nk4aAPJAJd5Zois78SXNgJQUNeac" charset="UTF-8"></script><style>
+			table,th,td{
+				border-style:solid;
+				border-color:black;
+			}
+
+			body{
+				font-family: verdana;
+				text-align:center;	
+			}
+
+			h1{
+				font-family: verdana;
+				text-align:center;	
+			}
+
+			input{
+				margin-bottom: 10px;
+			}
+
+			.container {
+				background: #EEE;
+				height: 80vh;
+				position: relative;
+			}
+
+			.elemento {
+				background: #EEE;
+				color: black;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+		</style>
+		<script>
+			var cadastros=[];
+			var i=0;
+			function cadastrar(){
+				var matricula = document.getElementById("matricula").value;
+				var nome = document.getElementById("nome").value;
+				var email = document.getElementById("email").value;
+				var telefone = document.getElementById("telefone").value;
+				var cliente = new Object();
+				cliente.matricula=matricula;
+				cliente.nome=nome;
+				cliente.email=email;
+				cliente.telefone=telefone;
+				cadastros[i]=cliente;
+				i++;
+			}
+			function geraLista(){
+				var x;
+				var tabela = document.getElementById("tabela");
+				for(x=0;x<i;x++){
+					let c1 = document.createElement("td");
+					let t1 = document.createTextNode(cadastros[x].matricula);
+					c1.appendChild(t1);
+					let c2 = document.createElement("td");
+					let t2 = document.createTextNode(cadastros[x].nome);
+					c2.appendChild(t2);
+					let c3 = document.createElement("td");
+					let t3 = document.createTextNode(cadastros[x].email);
+					c3.appendChild(t3);
+					let c4 = document.createElement("td");
+					let t4 = document.createTextNode(cadastros[x].telefone);
+					c4.appendChild(t4);
+					let linha = document.createElement("tr");
+					linha.appendChild(c1);
+					linha.appendChild(c2);
+					linha.appendChild(c3);
+					linha.appendChild(c4);
+					tabela.appendChild(linha);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container"><h1>Atividade Topicos Especias em Informatica</h1> 
+			<div class="elemento"> 
+		Matricula: <input type="text" id="matricula"><br>
+		Nome: <input type="text" id="nome"><br>
+		E-mail: <input type="text" id="email"><br>
+		Telefone: <input type="text" id="telefone"><br><br>
+		<button onclick="cadastrar()">Cadastrar</button>
+		<button onclick="geraLista()">Gerar Lista</button>
+		<table id="tabela">
+			<tr>
+				<th>Matricula</th><th>Nome</th><th>E-mail</th><th>Telefone</th>
+			</tr>
+		</table>
+		</div>
+		</div>
+	</body>
+</html>
